@@ -18,9 +18,29 @@ Preserve the accepted lightweight architecture:
 - no repeated hierarchy/global scans during steady-state use;
 - no save-data mutation;
 - no change to weather visuals;
-- changes apply through the narrow verified weather-audio path.
+- changes affect only the verified native rain/wind audio groups.
 
 Do not turn this into a general audio mixer or weather overhaul without explicit user approval.
+
+## Closed post-audit architecture verdict
+
+Read `docs/POST_AUDIT_WEATHER_AUDIO_1.1.0.md` before reopening the weather/audio Harmony-seam question.
+
+The 2026-09-19 post-audit pass closed the former concern that the production
+`SmartAudioEngine.SetSoundVolume(string, float)` Prefix should automatically be replaced by
+`SmartWeatherState.UpdateWeatherVolume(float)`.
+
+Accepted verdict: **keep current implementation**.
+
+The current general setter is broad by call surface but narrow by effect because it immediately
+returns for every group except exact `rain_environment` / `wind_environment` IDs. It preserves
+the already accepted immediate `SettingChanged` behavior with only two raw float caches and no
+weather-instance ownership. A weather-local replacement requires additional state/lifecycle
+coupling to reapply an already-active sound, and no material performance benefit has been proven.
+
+Do not repeat this research solely for semantic purity. Reopen it only for new concrete evidence,
+such as a measured performance cost, a reproduced collision/behavior bug, or a newly established
+state-free weather-local seam that preserves immediate live apply.
 
 ## Public/research boundary
 
@@ -50,6 +70,6 @@ Follow `DevRules/CI_POLICY.md` and `DevRules/GIT_WORKFLOW.md`.
 
 ## Long-lived sources of truth
 
-Use `README.md`, `CHANGELOG.md`, `docs/MIGRATION_PROVENANCE.md`, `docs/TEST_BUILD_LOG.md`, the canonical source/project files, and current public repository history. Historical pre-public evidence remains available in `666drjekyll666-cloud/RainAndWindVolumeControl-legacy-private`.
+Use `README.md`, `CHANGELOG.md`, `docs/MIGRATION_PROVENANCE.md`, `docs/TEST_BUILD_LOG.md`, `docs/POST_AUDIT_WEATHER_AUDIO_1.1.0.md`, the canonical source/project files, and current public repository history. Historical pre-public evidence remains available in `666drjekyll666-cloud/RainAndWindVolumeControl-legacy-private`.
 
 When chat memory conflicts with accepted repository evidence, investigate the conflict before changing code.
