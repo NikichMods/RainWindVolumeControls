@@ -2,14 +2,6 @@ name: Build Rain & Wind Volume Controls
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev/1.1.0
-    paths:
-      - 'src/**'
-      - 'RainWindVolumeControls.csproj'
-      - 'nuget.config'
-      - '.github/workflows/build.yml'
 
 permissions:
   contents: read
