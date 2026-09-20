@@ -4,7 +4,7 @@ This repository intentionally starts with fresh public Git history rather than p
 
 ## Legacy source
 
-- Private legacy repository: `666drjekyll666-cloud/RainAndWindVolumeControl-legacy-private`
+- Private legacy repository: `NikichMods/RainAndWindVolumeControl-legacy-private`
 - Legacy mod name: **Rain and Wind Volume Control**
 - Accepted legacy version: **1.0.1**
 - Accepted freeze branch: `baseline/1.0.1-release`
