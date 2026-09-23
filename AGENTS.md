@@ -44,7 +44,7 @@ state-free weather-local seam that preserves immediate live apply.
 
 ## Public/research boundary
 
-This public repository contains only redistributable project material: our source, documentation, build definitions, and our own release binaries/assets. Reverse-engineering material that genuinely needs retention belongs in the shared `NikichMods/GraveyardKeeperResearch` repository; durable verified facts needed by production belong in public project documentation.
+This public repository contains only redistributable project material: our source, documentation, build definitions, and our own release binaries/assets. Reusable **derived** reverse-engineering facts/evidence may be distilled into the shared `NikichMods/GraveyardKeeperResearch` repository; proprietary payloads and full decompilation material must not be committed there either. Durable project-specific facts needed by production belong in this repository's own documentation.
 
 ## Repository and release contract
 
