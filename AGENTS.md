@@ -62,9 +62,9 @@ This public repository contains only redistributable project material: our sourc
 
 Follow `DevRules/CI_POLICY.md` and `DevRules/GIT_WORKFLOW.md`.
 
-- Use hosted CI only at coherent candidate/handoff boundaries.
+- Code-bearing pull requests to `main` build automatically with path filters and `cancel-in-progress`; `workflow_dispatch` remains available for ad-hoc or handoff rebuilds.
 - Documentation-only changes do not require hosted CI.
-- Windows remains the canonical runner until a cheaper runner is explicitly proven equivalent for this project.
+- Windows remains the canonical runner because it matches the established build toolchain. Change runners only for a concrete engineering benefit and after equivalence is proven; runner-minute price is not a reason to move away from a standard Windows runner in this public repository.
 - A clean Release build is required before a new DLL is handed to the user.
 - After acceptance, publish the exact tested artifact to GitHub Releases; do not rebuild different bytes under the same version.
 
